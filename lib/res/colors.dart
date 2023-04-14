@@ -11,7 +11,7 @@ const lightIconColor = Color.fromARGB(255, 222, 249, 224);
 class CustomTextStyle {
   static const TextStyle nameOfTextStyle = TextStyle(
       fontWeight: FontWeight.w500,
-      fontSize: 24,
+      fontSize: 22,
       fontFamily: "Inter",
       color: Color(0xFF575757));
 }

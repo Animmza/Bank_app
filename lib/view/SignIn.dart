@@ -16,9 +16,9 @@ class signIn extends StatefulWidget {
 class _signInState extends State<signIn> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Column(
             children: [
               SizedBox(
@@ -35,17 +35,13 @@ class _signInState extends State<signIn> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 35, left: 28, right: 270),
-                child: Container(
-                  height: 22,
-                  width: 59,
-                  child: Text(
-                    "Sign In",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontFamily: "Inter",
-                      fontSize: 18,
-                    ),
+                padding: const EdgeInsets.only(top: 35, left: 20, right: 270),
+                child: Text(
+                  "Sign In",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontFamily: "Inter",
+                    fontSize: 22,
                   ),
                 ),
               ),
@@ -67,7 +63,7 @@ class _signInState extends State<signIn> {
                           width: 15,
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: AssetImage(ImageAssests.smallicon),
+                              image: AssetImage(ImageAssests.emailicon),
                             ),
                           ),
                         ),
@@ -86,15 +82,12 @@ class _signInState extends State<signIn> {
                         borderRadius: BorderRadius.circular(10),
                         borderSide: const BorderSide(
                           color: Color(0xFF95999B),
-                          width: 1,
+                          width: .5,
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 16,
               ),
               Padding(
                 padding: EdgeInsets.only(left: 28, right: 32, top: 16),
@@ -102,7 +95,7 @@ class _signInState extends State<signIn> {
                   height: 48,
                   width: 315,
                   child: TextField(
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontFamily: "Inter",
                         fontWeight: FontWeight.w400,
                         fontSize: 12),
@@ -112,7 +105,7 @@ class _signInState extends State<signIn> {
                         child: Container(
                           height: 13,
                           width: 15,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             image: DecorationImage(
                               image: AssetImage(ImageAssests.lock),
                             ),
@@ -133,45 +126,42 @@ class _signInState extends State<signIn> {
                         borderRadius: BorderRadius.circular(10),
                         borderSide: const BorderSide(
                           color: Color(0xFF95999B),
-                          width: 1,
+                          width: .5,
                         ),
                       ),
                     ),
                   ),
                 ),
               ),
-              SizedBox(
-                height: 4,
-              ),
               Align(
                 alignment: Alignment.centerRight,
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                      padding: EdgeInsets.only(right: 40.0)),
-                  child: Text(
-                    'Forget password?',
-                    style: TextStyle(
-                        fontFamily: "inter",
-                        fontWeight: FontWeight.w400,
-                        fontSize: 12.sp,
-                        color: Color((0xFFADA4A5))),
+                child: SizedBox(
+                  height: 30,
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                        padding: const EdgeInsets.only(right: 40.0)),
+                    child: Text(
+                      'Forget password?',
+                      style: TextStyle(
+                          fontFamily: "inter",
+                          fontWeight: FontWeight.w400,
+                          fontSize: 12.sp,
+                          color: const Color((0xFFADA4A5))),
+                    ),
+                    onPressed: () async {
+                      const String _url = "https://www.geeksforgeeks.org";
+                    },
                   ),
-                  onPressed: () async {
-                    const String _url = "https://www.geeksforgeeks.org";
-                  },
                 ),
               ),
               SizedBox(
-                height: 28,
+                height: 20,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 83, right: 76),
-                child: Container(
+                child: SizedBox(
                   height: 50,
                   width: 216,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(6),
-                  ),
                   child: TextButton(
                     child: Text(
                       "Sign In",
@@ -182,6 +172,8 @@ class _signInState extends State<signIn> {
                           color: Colors.white),
                     ),
                     style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6)),
                       backgroundColor: greenColor,
                     ),
                     onPressed: () {

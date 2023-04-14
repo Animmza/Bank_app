@@ -36,8 +36,7 @@ class _RequestMoneyState extends State<RequestMoney> {
     'yearly',
   ];
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
       appBar: AppBar(
         leadingWidth: 70,
         leading: GestureDetector(
@@ -46,6 +45,7 @@ class _RequestMoneyState extends State<RequestMoney> {
           },
           child: Container(
             margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+            padding: EdgeInsets.all(10),
             width: 50,
             height: 40,
             decoration: BoxDecoration(
@@ -67,186 +67,194 @@ class _RequestMoneyState extends State<RequestMoney> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
             child: Container(
+              padding: EdgeInsets.all(8),
               height: 40,
               width: 40,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                image: DecorationImage(
-                    image: AssetImage(ImageAssests.Notification)),
                 color: lightIconColor,
               ),
+              child: Image(
+                image: AssetImage(
+                  ImageAssests.Notification,
+                ),
+              ),
             ),
           ),
         ],
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: 30,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 16, right: 200),
-            child: Text(
-              'Request an Amount',
-              style: TextStyle(
-                  fontFamily: "Inter",
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.black),
+      body: SafeArea(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 30,
             ),
-          ),
-          SizedBox(
-            height: 7,
-          ),
-          CommonTextField(label: "Type here", onChanged: (v) {}),
-          SizedBox(
-            height: 22,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 14, right: 239),
-            child: Text(
-              'Select Friend',
-              style: TextStyle(
-                  fontFamily: "Inter",
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.black),
-            ),
-          ),
-          SizedBox(
-            height: 7,
-          ),
-          DropDwon(
-            items: items.map((String items) {
-              return DropdownMenuItem(
-                value: items,
-                child: Text(items),
-              );
-            }).toList(),
-            onChanged: (String? newValue) {
-              setState(() {
-                dropdwval = newValue!;
-              });
-            },
-            label: '',
-          ),
-          SizedBox(
-            height: 22,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 16, right: 220),
-            child: Text(
-              'Contact Number',
-              style: TextStyle(
-                  fontFamily: "Inter",
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.black),
-            ),
-          ),
-          SizedBox(
-            height: 7,
-          ),
-          CommonTextField(label: "Type here", onChanged: (v) {}),
-          SizedBox(
-            height: 43,
-          ),
-          Container(
-            height: 46,
-            width: 200,
-            child: ElevatedButton(
-              child: Text('Send Request'),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFF019747),
+            Padding(
+              padding: const EdgeInsets.only(left: 16, right: 200),
+              child: Text(
+                'Request an Amount',
+                style: TextStyle(
+                    fontFamily: "Inter",
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black),
               ),
-              onPressed: () {
-                showModalBottomSheet(
-                  shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.vertical(top: Radius.circular(20))),
-                  context: context,
-                  builder: (BuildContext context) {
-                    return Container(
-                      height: 303,
-                      width: 378,
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 300.0, right: 15, top: 13),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Home()),
-                                );
-                              },
+            ),
+            SizedBox(
+              height: 7,
+            ),
+            CommonTextField(label: "Type here", onChanged: (v) {}),
+            SizedBox(
+              height: 22,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 14, right: 239),
+              child: Text(
+                'Select Friend',
+                style: TextStyle(
+                    fontFamily: "Inter",
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black),
+              ),
+            ),
+            SizedBox(
+              height: 7,
+            ),
+            DropDwon(
+              items: items.map((String items) {
+                return DropdownMenuItem(
+                  value: items,
+                  child: Text(items),
+                );
+              }).toList(),
+              onChanged: (String? newValue) {
+                setState(() {
+                  dropdwval = newValue!;
+                });
+              },
+              label: '',
+            ),
+            SizedBox(
+              height: 22,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 16, right: 220),
+              child: Text(
+                'Contact Number',
+                style: TextStyle(
+                    fontFamily: "Inter",
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black),
+              ),
+            ),
+            SizedBox(
+              height: 7,
+            ),
+            CommonTextField(label: "Type here", onChanged: (v) {}),
+            SizedBox(
+              height: 43,
+            ),
+            Container(
+              height: 46,
+              width: 200,
+              child: ElevatedButton(
+                child: Text('Send Request'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF019747),
+                ),
+                onPressed: () {
+                  showModalBottomSheet(
+                    shape: RoundedRectangleBorder(
+                        borderRadius:
+                            BorderRadius.vertical(top: Radius.circular(20))),
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Container(
+                        height: 303,
+                        width: 378,
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 300.0, right: 15, top: 13),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Home()),
+                                  );
+                                },
+                                child: Container(
+                                  width: 41,
+                                  height: 41,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              ImageAssests.crossVector))),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 17,
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 120, right: 120),
                               child: Container(
-                                width: 41,
-                                height: 41,
+                                height: 101,
+                                width: 113,
                                 decoration: BoxDecoration(
                                     image: DecorationImage(
-                                        image: AssetImage(
-                                            ImageAssests.crossVector))),
+                                        image:
+                                            AssetImage(ImageAssests.quesmark))),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 17,
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.only(left: 120, right: 120),
-                            child: Container(
-                              height: 101,
-                              width: 113,
-                              decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image:
-                                          AssetImage(ImageAssests.quesmark))),
+                            SizedBox(
+                              height: 17,
                             ),
-                          ),
-                          SizedBox(
-                            height: 17,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 60, right: 60),
-                            child: Text(
-                              "Congratulations!",
-                              style: TextStyle(
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 60, right: 60),
+                              child: Text(
+                                "Congratulations!",
+                                style: TextStyle(
+                                    fontFamily: "Inter",
+                                    fontSize: 21,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF069948)),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 17,
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 60, right: 60),
+                              child: Text(
+                                "Your money request is successfully send to your friend",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
                                   fontFamily: "Inter",
-                                  fontSize: 21,
+                                  fontSize: 15,
                                   fontWeight: FontWeight.w600,
-                                  color: Color(0xFF069948)),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 17,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 60, right: 60),
-                            child: Text(
-                              "Your money request is successfully send to your friend",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontFamily: "Inter",
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600,
-                                color: Color(0xFF575757),
+                                  color: Color(0xFF575757),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                );
-              },
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
-    ));
+    );
   }
 }

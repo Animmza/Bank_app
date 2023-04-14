@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 class ImageAssests {
   static const splash = 'assests/splashimage.jpg';
   static const emailicon = 'assests/Message.png';
-  static const smallicon = 'assests/smallicon.png';
-  static const lock = 'assests/lok.png';
+  static const lock = 'assests/Lock.png';
   static const signequal = 'assests/equal.png';
   static const Notification = 'assests/Notification-Icon.png';
   static const tocontact = 'assests/personicon.png';

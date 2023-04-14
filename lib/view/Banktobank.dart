@@ -36,8 +36,7 @@ class _bankTobankState extends State<bankTobank> {
   ];
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
       appBar: AppBar(
         leadingWidth: 70,
         leading: GestureDetector(
@@ -46,6 +45,7 @@ class _bankTobankState extends State<bankTobank> {
           },
           child: Container(
             margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+            padding: EdgeInsets.all(10),
             width: 50,
             height: 40,
             decoration: BoxDecoration(
@@ -67,162 +67,169 @@ class _bankTobankState extends State<bankTobank> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
             child: Container(
+              padding: EdgeInsets.all(8),
               height: 40,
               width: 40,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                image: DecorationImage(
-                    image: AssetImage(ImageAssests.Notification)),
                 color: lightIconColor,
+              ),
+              child: Image(
+                image: AssetImage(
+                  ImageAssests.Notification,
+                ),
               ),
             ),
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 23,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16, right: 310),
-              child: Text(
-                'From',
-                style: TextStyle(
-                    fontFamily: "Inter",
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 23,
               ),
-            ),
-            SizedBox(
-              height: 7,
-            ),
-            DropDwon(
-              items: items.map((String items) {
-                return DropdownMenuItem(
-                  value: items,
-                  child: Text(items),
-                );
-              }).toList(),
-              onChanged: (String? newValue) {
-                setState(() {
-                  dropdwval = newValue!;
-                });
-              },
-              label: '',
-            ),
-            SizedBox(
-              height: 22,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16, right: 310),
-              child: Text(
-                'To',
-                style: TextStyle(
-                    fontFamily: "Inter",
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black),
-              ),
-            ),
-            SizedBox(
-              height: 7,
-            ),
-            DropDwon(
-              items: items.map((String items) {
-                return DropdownMenuItem(
-                  value: items,
-                  child: Text(items),
-                );
-              }).toList(),
-              onChanged: (String? newValue) {
-                setState(() {
-                  dropdwval = newValue!;
-                });
-              },
-              label: 'Select Bank',
-            ),
-            SizedBox(
-              height: 22,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16, right: 150),
-              child: Text(
-                'Merchant’s Account Number',
-                style: TextStyle(
-                    fontFamily: "Inter",
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black),
-              ),
-            ),
-            SizedBox(
-              height: 22,
-            ),
-            CommonTextField(label: "Type here", onChanged: (v) {}),
-            SizedBox(
-              height: 6,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16, right: 260),
-              child: Text(
-                'View Details',
-                style: TextStyle(
-                    fontFamily: "Inter",
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xFFE8B500),
-                    decoration: TextDecoration.underline),
-              ),
-            ),
-            SizedBox(
-              height: 22,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16, right: 170),
-              child: Text(
-                'Amount You Want to Send',
-                style: TextStyle(
-                  fontFamily: "Inter",
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.black,
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Text(
+                  'From',
+                  style: TextStyle(
+                      fontFamily: "Inter",
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 7,
-            ),
-            CommonTextField(label: "Type here", onChanged: (v) {}),
-            SizedBox(
-              height: 33,
-            ),
-            Container(
-              height: 46,
-              width: 200,
-              child: ElevatedButton(
-                child: Text('Send'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF019747),
-                ),
-                onPressed: () {
-                  showModalBottomSheet(
-                    shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.vertical(top: Radius.circular(20))),
-                    context: context,
-                    builder: (BuildContext context) {
-                      return BottamSheet();
-                    },
+              SizedBox(
+                height: 7,
+              ),
+              DropDwon(
+                items: items.map((String items) {
+                  return DropdownMenuItem(
+                    value: items,
+                    child: Text(items),
                   );
+                }).toList(),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    dropdwval = newValue!;
+                  });
                 },
+                label: '',
               ),
-            ),
-          ],
+              SizedBox(
+                height: 22,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20, right: 310),
+                child: Text(
+                  'To',
+                  style: TextStyle(
+                      fontFamily: "Inter",
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black),
+                ),
+              ),
+              SizedBox(
+                height: 7,
+              ),
+              DropDwon(
+                items: items.map((String items) {
+                  return DropdownMenuItem(
+                    value: items,
+                    child: Text(items),
+                  );
+                }).toList(),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    dropdwval = newValue!;
+                  });
+                },
+                label: 'Select Bank',
+              ),
+              SizedBox(
+                height: 22,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Text(
+                  'Merchant’s Account Number',
+                  style: TextStyle(
+                      fontFamily: "Inter",
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black),
+                ),
+              ),
+              SizedBox(height: 7),
+              CommonTextField(label: "Type here", onChanged: (v) {}),
+              SizedBox(
+                height: 6,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Text(
+                  'View Details',
+                  style: TextStyle(
+                      fontFamily: "Inter",
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFFE8B500),
+                      decoration: TextDecoration.underline),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Text(
+                  'Amount You Want to Send',
+                  style: TextStyle(
+                    fontFamily: "Inter",
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 7,
+              ),
+              CommonTextField(label: "Type here", onChanged: (v) {}),
+              SizedBox(
+                height: 33,
+              ),
+              Center(
+                child: Container(
+                  height: 46,
+                  width: 200,
+                  child: ElevatedButton(
+                    child: Text('Send'),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF019747),
+                    ),
+                    onPressed: () {
+                      showModalBottomSheet(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(20))),
+                        context: context,
+                        builder: (BuildContext context) {
+                          return BottamSheet();
+                        },
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
-    ));
+    );
   }
 }

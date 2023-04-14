@@ -35,8 +35,7 @@ class _AddToWalletState extends State<AddToWallet> {
   ];
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
       appBar: AppBar(
         leadingWidth: 70,
         leading: GestureDetector(
@@ -45,6 +44,7 @@ class _AddToWalletState extends State<AddToWallet> {
           },
           child: Container(
             margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+            padding: EdgeInsets.all(10),
             width: 50,
             height: 40,
             decoration: BoxDecoration(
@@ -66,6 +66,7 @@ class _AddToWalletState extends State<AddToWallet> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
             child: Container(
+              padding: EdgeInsets.all(10),
               height: 40,
               width: 40,
               decoration: BoxDecoration(
@@ -78,156 +79,160 @@ class _AddToWalletState extends State<AddToWallet> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          const SizedBox(
-            height: 36,
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 16, right: 150),
-            child: Text(
-              "Amount You Want to Transfer",
-              style: TextStyle(
-                  fontFamily: "Inter",
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xFF575757)),
+      body: SafeArea(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 36,
             ),
-          ),
-          SizedBox(
-            height: 7,
-          ),
-          CommonTextField(label: "Account Number", onChanged: (v) {}),
-          SizedBox(
-            height: 22,
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 16, right: 200),
-            child: Text(
-              "Select Bank Account",
-              style: TextStyle(
-                  fontFamily: "Inter",
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xFF575757)),
-            ),
-          ),
-          SizedBox(
-            height: 7,
-          ),
-          DropDwon(
-            items: items.map((String items) {
-              return DropdownMenuItem(
-                value: items,
-                child: Text(items),
-              );
-            }).toList(),
-            onChanged: (String? newValue) {
-              setState(() {
-                dropdwval = newValue!;
-              });
-            },
-            label: 'Select Bank',
-          ),
-          SizedBox(
-            height: 52,
-          ),
-          Container(
-            height: 46,
-            width: 200,
-            child: ElevatedButton(
-              child: Text('Transfer'),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFF019747),
+            Padding(
+              padding: EdgeInsets.only(left: 16, right: 150),
+              child: Text(
+                "Amount You Want to Transfer",
+                style: TextStyle(
+                    fontFamily: "Inter",
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFF575757)),
               ),
-              onPressed: () {
-                showModalBottomSheet(
-                  shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.vertical(top: Radius.circular(20))),
-                  context: context,
-                  builder: (BuildContext context) {
-                    return Container(
-                      height: 303,
-                      width: 378,
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 300.0, right: 15, top: 13),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Home()),
-                                );
-                              },
+            ),
+            SizedBox(
+              height: 7,
+            ),
+            CommonTextField(label: "Account Number", onChanged: (v) {}),
+            SizedBox(
+              height: 22,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 16, right: 200),
+              child: Text(
+                "Select Bank Account",
+                style: TextStyle(
+                    fontFamily: "Inter",
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFF575757)),
+              ),
+            ),
+            SizedBox(
+              height: 7,
+            ),
+            DropDwon(
+              items: items.map((String items) {
+                return DropdownMenuItem(
+                  value: items,
+                  child: Text(items),
+                );
+              }).toList(),
+              onChanged: (String? newValue) {
+                setState(() {
+                  dropdwval = newValue!;
+                });
+              },
+              label: 'Select Bank',
+            ),
+            SizedBox(
+              height: 52,
+            ),
+            Container(
+              height: 46,
+              width: 200,
+              child: ElevatedButton(
+                child: Text('Transfer'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF019747),
+                ),
+                onPressed: () {
+                  showModalBottomSheet(
+                    shape: RoundedRectangleBorder(
+                        borderRadius:
+                            BorderRadius.vertical(top: Radius.circular(20))),
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Container(
+                        height: 303,
+                        width: 378,
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 300.0, right: 15, top: 13),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Home()),
+                                  );
+                                },
+                                child: Container(
+                                  width: 41,
+                                  height: 41,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              ImageAssests.crossVector))),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 17,
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 120, right: 120),
                               child: Container(
-                                width: 41,
-                                height: 41,
+                                height: 101,
+                                width: 113,
                                 decoration: BoxDecoration(
                                     image: DecorationImage(
-                                        image: AssetImage(
-                                            ImageAssests.crossVector))),
+                                        image:
+                                            AssetImage(ImageAssests.Trueicon))),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 17,
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.only(left: 120, right: 120),
-                            child: Container(
-                              height: 101,
-                              width: 113,
-                              decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image:
-                                          AssetImage(ImageAssests.Trueicon))),
+                            SizedBox(
+                              height: 17,
                             ),
-                          ),
-                          SizedBox(
-                            height: 17,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 60, right: 60),
-                            child: Text(
-                              "Success!",
-                              style: TextStyle(
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 60, right: 60),
+                              child: Text(
+                                "Success!",
+                                style: TextStyle(
+                                    fontFamily: "Inter",
+                                    fontSize: 21,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF069948)),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 17,
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 60, right: 60),
+                              child: Text(
+                                "\$200 successfully added to your wallet ",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
                                   fontFamily: "Inter",
-                                  fontSize: 21,
+                                  fontSize: 15,
                                   fontWeight: FontWeight.w600,
-                                  color: Color(0xFF069948)),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 17,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 60, right: 60),
-                            child: Text(
-                              "\$200 successfully added to your wallet ",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontFamily: "Inter",
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600,
-                                color: Color(0xFF575757),
+                                  color: Color(0xFF575757),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                );
-              },
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
-    ));
+    );
   }
 }

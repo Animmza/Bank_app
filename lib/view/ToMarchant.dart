@@ -16,8 +16,7 @@ class ToMarchant extends StatefulWidget {
 class _ToMarchantState extends State<ToMarchant> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
       appBar: AppBar(
         leadingWidth: 70,
         leading: GestureDetector(
@@ -26,6 +25,7 @@ class _ToMarchantState extends State<ToMarchant> {
           },
           child: Container(
             margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+            padding: EdgeInsets.all(10),
             width: 50,
             height: 40,
             decoration: BoxDecoration(
@@ -47,98 +47,104 @@ class _ToMarchantState extends State<ToMarchant> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
             child: Container(
+              padding: EdgeInsets.all(8),
               height: 40,
               width: 40,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                image: DecorationImage(
-                    image: AssetImage(ImageAssests.Notification)),
                 color: lightIconColor,
               ),
+              child: Image(
+                image: AssetImage(
+                  ImageAssests.Notification,
+                ),
+              ),
             ),
           ),
         ],
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: 23,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 16, right: 161),
-            child: Text(
-              'Merchant’s Account Number',
-              style: TextStyle(
+      body: SafeArea(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 23,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 16, right: 161),
+              child: Text(
+                'Merchant’s Account Number',
+                style: TextStyle(
+                    fontFamily: "Inter",
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black),
+              ),
+            ),
+            SizedBox(
+              height: 7,
+            ),
+            CommonTextField(label: "Type here", onChanged: (v) {}),
+            SizedBox(
+              height: 6,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 16, right: 260),
+              child: Text(
+                'View Details',
+                style: TextStyle(
+                    fontFamily: "Inter",
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFFE8B500),
+                    decoration: TextDecoration.underline),
+              ),
+            ),
+            SizedBox(
+              height: 22,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 16, right: 290),
+              child: Text(
+                'Amount',
+                style: TextStyle(
                   fontFamily: "Inter",
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
-                  color: Colors.black),
-            ),
-          ),
-          SizedBox(
-            height: 7,
-          ),
-          CommonTextField(label: "Type here", onChanged: (v) {}),
-          SizedBox(
-            height: 6,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 16, right: 260),
-            child: Text(
-              'View Details',
-              style: TextStyle(
-                  fontFamily: "Inter",
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xFFE8B500),
-                  decoration: TextDecoration.underline),
-            ),
-          ),
-          SizedBox(
-            height: 22,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 16, right: 290),
-            child: Text(
-              'Amount',
-              style: TextStyle(
-                fontFamily: "Inter",
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-                color: Colors.black,
+                  color: Colors.black,
+                ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 7,
-          ),
-          CommonTextField(label: "Type here", onChanged: (v) {}),
-          SizedBox(
-            height: 33,
-          ),
-          Container(
-            height: 46,
-            width: 200,
-            child: ElevatedButton(
-              child: Text('Transfer'),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFF019747),
-              ),
-              onPressed: () {
-                showModalBottomSheet(
-                  shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.vertical(top: Radius.circular(20))),
-                  context: context,
-                  builder: (BuildContext context) {
-                    return BottamSheet();
-                  },
-                );
-              },
+            SizedBox(
+              height: 7,
             ),
-          ),
-        ],
+            CommonTextField(label: "Type here", onChanged: (v) {}),
+            SizedBox(
+              height: 33,
+            ),
+            Container(
+              height: 46,
+              width: 200,
+              child: ElevatedButton(
+                child: Text('Transfer'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF019747),
+                ),
+                onPressed: () {
+                  showModalBottomSheet(
+                    shape: RoundedRectangleBorder(
+                        borderRadius:
+                            BorderRadius.vertical(top: Radius.circular(20))),
+                    context: context,
+                    builder: (BuildContext context) {
+                      return BottamSheet();
+                    },
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
-    ));
+    );
   }
 }

@@ -3,6 +3,7 @@ import 'package:bankapppp/assest/assests-folder.dart';
 import 'package:bankapppp/view/SignIn.dart';
 import 'package:bankapppp/view/splash.dart';
 import 'package:flutter/material.dart';
+
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
 
@@ -24,22 +25,21 @@ class _SplashState extends State<Splash> {
   }
 
   @override
-
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Center(
-    child: Container(
-        height: 242,
-        width: 341,
-        decoration: BoxDecoration(
-          image:  DecorationImage(
-            image:AssetImage(ImageAssests.splash
+        body: SafeArea(
+      child: Center(
+        child: Container(
+          height: 242,
+          width: 341,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(ImageAssests.splash),
+              fit: BoxFit.cover,
             ),
-            fit: BoxFit.cover,
           ),
         ),
       ),
-      )
-    );
+    ));
   }
 }

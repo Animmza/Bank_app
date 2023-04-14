@@ -1,11 +1,12 @@
 import 'package:bankapppp/res/routes/routes.dart';
 import 'package:bankapppp/view/splash.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(DevicePreview(enabled: false, builder: (context) => MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -17,6 +18,8 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       builder: (BuildContext context, child) => GetMaterialApp(
         theme: ThemeData(
+            elevatedButtonTheme: ElevatedButtonThemeData(
+                style: ElevatedButton.styleFrom(elevation: 0)),
             scaffoldBackgroundColor: Colors.white,
             appBarTheme: AppBarTheme(
               elevation: 0,

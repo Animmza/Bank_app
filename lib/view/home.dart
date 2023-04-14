@@ -7,6 +7,7 @@ import 'package:bankapppp/view/Contatc2.dart';
 import 'package:bankapppp/view/RequestMoney.dart';
 import 'package:bankapppp/view/ToBank.dart';
 import 'package:bankapppp/view/Transactionhistory.dart';
+import 'package:bankapppp/view/widght/home_grid_box.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -23,41 +24,45 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          leadingWidth: 70,
-          leading: Container(
-            margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
-            decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage(ImageAssests.signequal)),
-              color: lightIconColor,
-              borderRadius: BorderRadius.circular(8),
-            ),
+    return Scaffold(
+      appBar: AppBar(
+        leadingWidth: 70,
+        leading: Container(
+          margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+          decoration: BoxDecoration(
+            image: DecorationImage(image: AssetImage(ImageAssests.signequal)),
+            color: lightIconColor,
+            borderRadius: BorderRadius.circular(8),
           ),
-          centerTitle: true,
-          title: Text(
-            "Home",
-            textAlign: TextAlign.center,
-            style: CustomTextStyle.nameOfTextStyle,
-          ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
-              child: Container(
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(ImageAssests.Notification)),
-                  color: lightIconColor,
-                  borderRadius: BorderRadius.circular(8),
+        ),
+        centerTitle: true,
+        title: Text(
+          "Home",
+          textAlign: TextAlign.center,
+          style: CustomTextStyle.nameOfTextStyle,
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+            child: Container(
+              padding: EdgeInsets.all(8),
+              height: 40,
+              width: 40,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: lightIconColor,
+              ),
+              child: Image(
+                image: AssetImage(
+                  ImageAssests.Notification,
                 ),
               ),
             ),
-          ],
-        ),
-        body: Column(
+          ),
+        ],
+      ),
+      body: SafeArea(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
@@ -87,142 +92,28 @@ class _HomeState extends State<Home> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      Get.to(Tocontact());
-                    },
-                    child: Container(
-                      width: 97,
-                      height: 101,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFE8B500),
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 27, right: 28, top: 26),
-                            child: Image.asset(
-                              'assests/personicon.png',
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 6, top: 13, right: 8),
-                            child: Container(
-                              height: 33,
-                              width: 101,
-                              child: Text(
-                                'Add Contact',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontFamily: "Inter",
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.white),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  GestureDetector(
+                  HomeGridBox(
+                      assetPath: 'assests/personicon.png',
+                      onTap: () {
+                        Get.to(Tocontact());
+                      },
+                      title: 'Add Contact'),
+                  HomeGridBox(
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => Tobank()),
                       );
                     },
-                    child: Container(
-                      width: 97,
-                      height: 101,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFE8B500),
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 27, right: 28, top: 19),
-                            child: Container(
-                              height: 41,
-                              width: 41,
-                              child: Image.asset(
-                                'assests/bank.png',
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 27, right: 11),
-                            child: Container(
-                              height: 33,
-                              width: 92,
-                              child: Text(
-                                'To Bank',
-                                style: TextStyle(
-                                    fontFamily: "Inter",
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.white),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    assetPath: 'assests/bank.png',
+                    title: 'To Bank',
                   ),
-                  GestureDetector(
+                  HomeGridBox(
                     onTap: () {
                       Get.to(bankTobank());
                     },
-                    child: Container(
-                      width: 97,
-                      height: 101,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFE8B500),
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 27, right: 28, top: 21),
-                            child: Container(
-                              height: 40,
-                              width: 50,
-                              child: Image.asset(
-                                'assests/bannnk.png',
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 6,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 5, right: 3),
-                            child: Container(
-                              child: Center(
-                                child: Text(
-                                  'Bank to Bank',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontFamily: "Inter",
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.white),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    assetPath: 'assests/banktobank.png',
+                    title: 'Bank to Bank',
                   ),
                 ],
               ),
@@ -235,99 +126,22 @@ class _HomeState extends State<Home> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  GestureDetector(
+                  HomeGridBox(
                     onTap: () {
                       Get.to(const RequestMoney());
                     },
-                    child: Container(
-                      width: 97,
-                      height: 101,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFE8B500),
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              left: 27,
-                              right: 26,
-                            ),
-                            child: Image.asset(
-                              'assests/hmoney.png',
-                            ),
-                          ),
-                          SizedBox(
-                            height: 3,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 14, right: 14),
-                            child: Container(
-                              height: 28,
-                              width: 61,
-                              child: Text(
-                                'Request Money',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontFamily: "Inter",
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.white),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    assetPath: 'assests/request_money.png',
+                    title: 'Request Money',
                   ),
-                  GestureDetector(
+                  HomeGridBox(
                     onTap: () {
                       Get.to(ToMarchant());
                     },
-                    child: Container(
-                      width: 97,
-                      height: 101,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFE8B500),
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 27, right: 28, top: 19),
-                            child: Image.asset(
-                              'assests/dollar.png',
-                            ),
-                          ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 6, right: 4),
-                            child: Container(
-                              height: 33,
-                              width: 101,
-                              child: Text(
-                                'To Merchant',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontFamily: "Inter",
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.white),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    assetPath: 'assests/mechant.png',
+                    title: 'To Merchant',
                   ),
                   SizedBox(
-                    width: 97,
+                    width: 105,
                   ),
                 ],
               ),
@@ -359,95 +173,21 @@ class _HomeState extends State<Home> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      Get.to(TransactionHistory());
-                    },
-                    child: Container(
-                      width: 97,
-                      height: 101,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFE8B500),
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 12.9,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 33, right: 35),
-                            child: Image.asset(
-                              'assests/notes.png',
-                            ),
-                          ),
-                          SizedBox(
-                            height: 6,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 8, right: 8),
-                            child: Container(
-                              height: 46,
-                              width: 101,
-                              child: Text(
-                                'Transaction History',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontFamily: "Inter",
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.white),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  GestureDetector(
+                  HomeGridBox(
+                      onTap: () {
+                        Get.to(TransactionHistory());
+                      },
+                      assetPath: 'assests/transactionhistory.png',
+                      title: 'Transaction History'),
+                  HomeGridBox(
                     onTap: () {
                       Get.to(AddToWallet());
                     },
-                    child: Container(
-                      width: 97,
-                      height: 101,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFE8B500),
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 27, right: 28, top: 13),
-                            child: Container(
-                              height: 45,
-                              width: 43,
-                              child: Image.asset(
-                                'assests/voielt.png',
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          Container(
-                            child: Text(
-                              'Add to Wallet',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontFamily: "Inter",
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.white),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    assetPath: 'assests/wallet.png',
+                    title: 'Add to Wallet',
                   ),
                   SizedBox(
-                    width: 97,
+                    width: 105,
                   )
                 ],
               ),
