@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 class CommonTextField extends StatelessWidget {
   final String label;
   final ValueChanged<String> onChanged;
@@ -14,11 +15,11 @@ class CommonTextField extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20),
       child: TextField(
-        style:  TextStyle(
-
-            fontFamily: "Inter",fontSize: 16,fontWeight: FontWeight.w400,color: Color(0xFFADA4A5)
-
-        ),
+        style: TextStyle(
+            fontFamily: "Inter",
+            fontSize: 16,
+            fontWeight: FontWeight.w400,
+            color: Color(0xFFADA4A5)),
         onChanged: onChanged,
         decoration: InputDecoration(
           filled: true,

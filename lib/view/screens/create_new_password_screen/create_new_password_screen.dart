@@ -1,9 +1,7 @@
 import 'package:bankapppp/assest/assests-folder.dart';
 import 'package:bankapppp/res/colors.dart';
-import 'package:bankapppp/view/SignIn.dart';
-import 'package:bankapppp/view/home.dart';
 import 'package:bankapppp/view/screens/reset_password_screen/reset_password_screen.dart';
-import 'package:bankapppp/view/screens/sign_up_screen/widgets/common_text_field.dart';
+import 'package:bankapppp/view/widght/text_field_with_prefix.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -25,22 +23,25 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
                 height: 30,
               ),
-              Container(
-                height: 242,
-                width: 341,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(ImageAssests.splash),
-                    fit: BoxFit.cover,
+              Center(
+                child: Container(
+                  height: 242,
+                  width: 341,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(ImageAssests.splash),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 35, left: 10, right: 130),
+              Padding(
+                padding: EdgeInsets.only(top: 35, left: 20.w),
                 child: Text(
                   "Create New Password",
                   style: TextStyle(
@@ -50,27 +51,34 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 4, right: 165),
+              Padding(
+                padding: EdgeInsets.only(top: 4, left: 20.w),
                 child: Text('Please write your new password.',
                     style: TextStyle(fontSize: 11, color: Colors.black26)),
               ),
-              const CommonTextField(
-                hintText: "Password",
-                assetIcon: ImageAssests.lock,
+              Center(
+                child: TextFieldWithPrefix(
+                  label: "Password",
+                  prefixPath: ImageAssests.lock,
+                  onChanged: (v) {},
+                ),
               ),
-              const CommonTextField(
-                  hintText: 'Retype Password', assetIcon: ImageAssests.lock),
-              const SizedBox(
-                height: 20,
+              Center(
+                child: TextFieldWithPrefix(
+                  label: 'Retype Password',
+                  prefixPath: ImageAssests.lock,
+                  onChanged: (v) {},
+                ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 15),
+                padding: EdgeInsets.only(left: 20.w),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Checkbox(
-                      shape: const RoundedRectangleBorder(),
+                      side: BorderSide(width: 1, color: Colors.grey),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4)),
                       value: value,
                       onChanged: (value) {
                         setState(
@@ -80,12 +88,17 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
                         );
                       },
                     ),
-                    Text('Show Password', style: TextStyle(fontSize: 10, color: Color(0xFFADA4A5)),)
+                    Text(
+                      'Show Password',
+                      style: TextStyle(fontSize: 12, color: Color(0xFFADA4A5)),
+                    )
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 83, right: 76),
+              const SizedBox(
+                height: 20,
+              ),
+              Center(
                 child: SizedBox(
                   height: 50,
                   width: 216,

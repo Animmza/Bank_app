@@ -2,7 +2,8 @@ import 'package:bankapppp/assest/assests-folder.dart';
 import 'package:bankapppp/res/colors.dart';
 import 'package:bankapppp/view/SignIn.dart';
 import 'package:bankapppp/view/home.dart';
-import 'package:bankapppp/view/screens/sign_up_screen/widgets/common_text_field.dart';
+
+import 'package:bankapppp/view/widght/text_field_with_prefix.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -37,48 +38,57 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 35, left: 20, right: 270),
-                child: Text(
-                  "Sign Up",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontFamily: "Inter",
-                    fontSize: 22,
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.only(top: 35, left: 20),
+                  child: Text(
+                    "Sign Up",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontFamily: "Inter",
+                      fontSize: 22,
+                    ),
                   ),
                 ),
               ),
-              const CommonTextField(
-                hintText: "Full Name",
-                assetIcon: ImageAssests.fullName,
+              TextFieldWithPrefix(
+                label: "Full Name",
+                prefixPath: ImageAssests.fullName,
+                onChanged: (v) {},
               ),
-              const CommonTextField(
-                hintText: "Email",
-                assetIcon: ImageAssests.emailicon,
-              ),
-              const CommonTextField(
-                hintText: "Phone Number",
-                assetIcon: ImageAssests.phone,
-              ),
-              const CommonTextField(
-                hintText: "Password",
-                assetIcon: ImageAssests.lock,
-              ),
-              const CommonTextField(
-                hintText: "Confirm Password",
-                assetIcon: ImageAssests.lock,
-              ),
+              TextFieldWithPrefix(
+                  label: "Email",
+                  prefixPath: ImageAssests.emailicon,
+                  onChanged: (v) {}),
+              TextFieldWithPrefix(
+                  label: "Phone Number",
+                  prefixPath: ImageAssests.phone,
+                  onChanged: (v) {}),
+              TextFieldWithPrefix(
+                  label: "Password",
+                  prefixPath: ImageAssests.lock,
+                  onChanged: (v) {}),
+              TextFieldWithPrefix(
+                  label: "Confirm Password",
+                  prefixPath: ImageAssests.lock,
+                  onChanged: (v) {}),
               const SizedBox(
                 height: 20,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 15),
+                padding: const EdgeInsets.only(
+                  left: 28,
+                  right: 32,
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Checkbox(
-                        shape: const RoundedRectangleBorder(),
-                        value: value,
+                        side: BorderSide(width: 1, color: Colors.grey),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(4)),
+                        value: false,
                         onChanged: (value) {
                           setState(() {
                             value = value;
@@ -105,7 +115,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                             ),
                             TextSpan(
-                              text: 'term of Use',
+                              text: 'Terms of Use',
                               style: TextStyle(
                                   color: Color(0xFFE8B80E),
                                   fontSize: 10,
@@ -117,7 +127,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
               const SizedBox(
-                height: 29,
+                height: 25,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 83, right: 76),

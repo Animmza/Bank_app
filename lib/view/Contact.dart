@@ -3,7 +3,9 @@ import 'package:bankapppp/res/colors.dart';
 import 'package:bankapppp/view/Contatc2.dart';
 import 'package:bankapppp/view/home.dart';
 import 'package:bankapppp/view/widght/contact_widget.dart';
+import 'package:bankapppp/view/widght/contacts_list_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class Tocontact extends StatefulWidget {
@@ -71,15 +73,18 @@ class _TocontactState extends State<Tocontact> {
                 SizedBox(
                   height: 30,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 16, right: 222),
-                  child: Text(
-                    "Contact List",
-                    style: TextStyle(
-                        fontFamily: "Inter",
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                        color: greenColor),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 20.w),
+                    child: Text(
+                      "Contact List",
+                      style: TextStyle(
+                          fontFamily: "Inter",
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          color: greenColor),
+                    ),
                   ),
                 ),
                 Padding(
@@ -96,7 +101,7 @@ class _TocontactState extends State<Tocontact> {
                           icon: Icon(Icons.search),
                           onPressed: () {},
                         ),
-                        Expanded(
+                        const Expanded(
                           child: TextField(
                             cursorColor: Colors.black,
                             keyboardType: TextInputType.text,
@@ -112,122 +117,9 @@ class _TocontactState extends State<Tocontact> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 15,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 16, right: 17),
-                  child: Container(
-                    height: 213,
-                    width: 334,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            offset: Offset(1, 1),
-                            color: Colors.grey.shade300,
-                            blurRadius: 10,
-                          )
-                        ]
-                        // elevation: 1,
-                        // shadowColor: Colors.grey.shade100,
-                        ),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 21,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 32, right: 295),
-                          child: Text(
-                            "A",
-                            style: TextStyle(
-                              fontFamily: "Inter",
-                              fontSize: 22,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 30, right: 32),
-                          child: Divider(
-                            color: Color(0xFFDBDBDB),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 18,
-                        ),
-                        ContactWidget(),
-                        SizedBox(
-                          height: 21,
-                        ),
-                        ContactWidget(),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 16, right: 17),
-                  child: Container(
-                    height: 300,
-                    width: 334,
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          offset: Offset(1, 1),
-                          color: Colors.grey.shade300,
-                          blurRadius: 10,
-                        )
-                      ],
-                      borderRadius: BorderRadius.circular(25),
-                      color: Colors.white,
-                    ),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 32, right: 295),
-                          child: Text(
-                            "B",
-                            style: TextStyle(
-                              fontFamily: "Inter",
-                              fontSize: 22,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 30, right: 32),
-                          child: Divider(
-                            color: Color(0xFFDBDBDB),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        ContactWidget(),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        ContactWidget(),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        ContactWidget(),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        ContactWidget(),
-                      ],
-                    ),
-                  ),
-                ),
+                const ContactsListWidget(label: "A", count: 2),
+                const ContactsListWidget(label: "B", count: 3),
+                const ContactsListWidget(label: "C", count: 3),
               ],
             ),
           ),

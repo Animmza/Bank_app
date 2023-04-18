@@ -1,9 +1,7 @@
 import 'package:bankapppp/assest/assests-folder.dart';
 import 'package:bankapppp/res/colors.dart';
-import 'package:bankapppp/view/SignIn.dart';
-import 'package:bankapppp/view/home.dart';
 import 'package:bankapppp/view/screens/reset_password_screen/reset_password_screen.dart';
-import 'package:bankapppp/view/screens/sign_up_screen/widgets/common_text_field.dart';
+import 'package:bankapppp/view/widght/text_field_with_prefix.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -23,22 +21,25 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
                 height: 30,
               ),
-              Container(
-                height: 242,
-                width: 341,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(ImageAssests.splash),
-                    fit: BoxFit.cover,
+              Center(
+                child: Container(
+                  height: 242,
+                  width: 341,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(ImageAssests.splash),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 35, left: 10, right: 170),
+              Padding(
+                padding: EdgeInsets.only(top: 35.h, left: 20.w),
                 child: Text(
                   "Forget Password",
                   style: TextStyle(
@@ -48,18 +49,21 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 4, left: 28),
+              Padding(
+                padding: EdgeInsets.only(top: 4.h, left: 20.w, right: 20.w),
                 child: Text(
                     'Don’t worry, If you forgot your password. We will reset your password in 2 minutes. Please provide the registered Email below',
                     style: TextStyle(fontSize: 11, color: Colors.black26)),
               ),
-              const CommonTextField(
-                hintText: "Email",
-                assetIcon: ImageAssests.emailicon,
+              Center(
+                child: TextFieldWithPrefix(
+                  label: "Email",
+                  prefixPath: ImageAssests.emailicon,
+                  onChanged: (v) {},
+                ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 17, left: 28),
+              Padding(
+                padding: EdgeInsets.only(top: 17.h, left: 20.w, right: 20.w),
                 child: Text(
                     'We will send a verification code on given email. Please enter the code to reser password.',
                     style: TextStyle(fontSize: 11, color: Colors.black26)),
@@ -67,8 +71,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
               const SizedBox(
                 height: 20,
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 83, right: 76),
+              Center(
                 child: SizedBox(
                   height: 50,
                   width: 216,

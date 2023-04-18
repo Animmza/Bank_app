@@ -2,6 +2,7 @@ import 'package:bankapppp/assest/assests-folder.dart';
 import 'package:bankapppp/res/colors.dart';
 import 'package:bankapppp/view/home.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
@@ -85,12 +86,13 @@ class _RequestMoneyState extends State<RequestMoney> {
       ),
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
               height: 30,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 16, right: 200),
+              padding: EdgeInsets.only(left: 20.w),
               child: Text(
                 'Request an Amount',
                 style: TextStyle(
@@ -108,7 +110,7 @@ class _RequestMoneyState extends State<RequestMoney> {
               height: 22,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 14, right: 239),
+              padding: EdgeInsets.only(left: 20.w),
               child: Text(
                 'Select Friend',
                 style: TextStyle(
@@ -139,7 +141,7 @@ class _RequestMoneyState extends State<RequestMoney> {
               height: 22,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 16, right: 220),
+              padding: EdgeInsets.only(left: 20.w),
               child: Text(
                 'Contact Number',
                 style: TextStyle(
@@ -156,100 +158,101 @@ class _RequestMoneyState extends State<RequestMoney> {
             SizedBox(
               height: 43,
             ),
-            Container(
-              height: 46,
-              width: 200,
-              child: ElevatedButton(
-                child: Text('Send Request'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF019747),
-                ),
-                onPressed: () {
-                  showModalBottomSheet(
-                    shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.vertical(top: Radius.circular(20))),
-                    context: context,
-                    builder: (BuildContext context) {
-                      return Container(
-                        height: 303,
-                        width: 378,
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 300.0, right: 15, top: 13),
-                              child: GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Home()),
-                                  );
-                                },
+            Center(
+              child: Container(
+                height: 46,
+                width: 200,
+                child: ElevatedButton(
+                  child: Text('Send Request'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF019747),
+                  ),
+                  onPressed: () {
+                    showModalBottomSheet(
+                      shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.vertical(top: Radius.circular(20))),
+                      context: context,
+                      builder: (BuildContext context) {
+                        return Container(
+                          height: 303,
+                          width: 378,
+                          child: Column(
+                            children: [
+                              Align(
+                                alignment: Alignment.centerRight,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Home()),
+                                    );
+                                  },
+                                  child: Container(
+                                    width: 41,
+                                    height: 41,
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                                ImageAssests.crossVector))),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 17,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 120, right: 120),
                                 child: Container(
-                                  width: 41,
-                                  height: 41,
+                                  height: 101,
+                                  width: 113,
                                   decoration: BoxDecoration(
                                       image: DecorationImage(
                                           image: AssetImage(
-                                              ImageAssests.crossVector))),
+                                              ImageAssests.quesmark))),
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 17,
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 120, right: 120),
-                              child: Container(
-                                height: 101,
-                                width: 113,
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image:
-                                            AssetImage(ImageAssests.quesmark))),
+                              SizedBox(
+                                height: 17,
                               ),
-                            ),
-                            SizedBox(
-                              height: 17,
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 60, right: 60),
-                              child: Text(
-                                "Congratulations!",
-                                style: TextStyle(
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 60, right: 60),
+                                child: Text(
+                                  "Congratulations!",
+                                  style: TextStyle(
+                                      fontFamily: "Inter",
+                                      fontSize: 21,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xFF069948)),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 17,
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 60, right: 60),
+                                child: Text(
+                                  "Your money request is successfully send to your friend",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
                                     fontFamily: "Inter",
-                                    fontSize: 21,
+                                    fontSize: 15,
                                     fontWeight: FontWeight.w600,
-                                    color: Color(0xFF069948)),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 17,
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 60, right: 60),
-                              child: Text(
-                                "Your money request is successfully send to your friend",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontFamily: "Inter",
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600,
-                                  color: Color(0xFF575757),
+                                    color: Color(0xFF575757),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                  );
-                },
+                            ],
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
               ),
             ),
           ],

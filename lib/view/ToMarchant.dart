@@ -4,6 +4,7 @@ import 'package:bankapppp/view/home.dart';
 import 'package:bankapppp/view/widght/CommanBottamStheet.dart';
 import 'package:bankapppp/view/widght/comanTextField.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class ToMarchant extends StatefulWidget {
@@ -65,12 +66,13 @@ class _ToMarchantState extends State<ToMarchant> {
       ),
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
               height: 23,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 16, right: 161),
+              padding: EdgeInsets.only(left: 20.w),
               child: Text(
                 'Merchant’s Account Number',
                 style: TextStyle(
@@ -88,7 +90,7 @@ class _ToMarchantState extends State<ToMarchant> {
               height: 6,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 16, right: 260),
+              padding: EdgeInsets.only(left: 20.w),
               child: Text(
                 'View Details',
                 style: TextStyle(
@@ -103,7 +105,7 @@ class _ToMarchantState extends State<ToMarchant> {
               height: 22,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 16, right: 290),
+              padding: EdgeInsets.only(left: 20.w),
               child: Text(
                 'Amount',
                 style: TextStyle(
@@ -121,25 +123,27 @@ class _ToMarchantState extends State<ToMarchant> {
             SizedBox(
               height: 33,
             ),
-            Container(
-              height: 46,
-              width: 200,
-              child: ElevatedButton(
-                child: Text('Transfer'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF019747),
+            Center(
+              child: Container(
+                height: 46,
+                width: 200,
+                child: ElevatedButton(
+                  child: Text('Transfer'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF019747),
+                  ),
+                  onPressed: () {
+                    showModalBottomSheet(
+                      shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.vertical(top: Radius.circular(20))),
+                      context: context,
+                      builder: (BuildContext context) {
+                        return BottamSheet();
+                      },
+                    );
+                  },
                 ),
-                onPressed: () {
-                  showModalBottomSheet(
-                    shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.vertical(top: Radius.circular(20))),
-                    context: context,
-                    builder: (BuildContext context) {
-                      return BottamSheet();
-                    },
-                  );
-                },
               ),
             ),
           ],

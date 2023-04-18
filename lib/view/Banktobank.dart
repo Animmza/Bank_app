@@ -4,6 +4,7 @@ import 'package:bankapppp/view/home.dart';
 import 'package:bankapppp/view/widght/comanTextField.dart';
 import 'package:bankapppp/view/widght/comandropDwon.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'widght/CommanBottamStheet.dart';
@@ -92,7 +93,7 @@ class _bankTobankState extends State<bankTobank> {
                 height: 23,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20),
+                padding: EdgeInsets.only(left: 20.w),
                 child: Text(
                   'From',
                   style: TextStyle(
@@ -123,7 +124,7 @@ class _bankTobankState extends State<bankTobank> {
                 height: 22,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20, right: 310),
+                padding: EdgeInsets.only(left: 20.w),
                 child: Text(
                   'To',
                   style: TextStyle(
@@ -154,7 +155,7 @@ class _bankTobankState extends State<bankTobank> {
                 height: 22,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20),
+                padding: EdgeInsets.only(left: 20.w),
                 child: Text(
                   'Merchant’s Account Number',
                   style: TextStyle(
@@ -170,7 +171,7 @@ class _bankTobankState extends State<bankTobank> {
                 height: 6,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20),
+                padding: EdgeInsets.only(left: 20.w),
                 child: Text(
                   'View Details',
                   style: TextStyle(
@@ -185,7 +186,7 @@ class _bankTobankState extends State<bankTobank> {
                 height: 20,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20),
+                padding: EdgeInsets.only(left: 20.w),
                 child: Text(
                   'Amount You Want to Send',
                   style: TextStyle(

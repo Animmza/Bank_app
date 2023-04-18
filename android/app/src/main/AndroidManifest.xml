@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.bankapppp">
    <application
-        android:label="Diaspora Wallet"
+        android:label="Diaspora Wallet V1"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

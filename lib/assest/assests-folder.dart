@@ -35,5 +35,10 @@ class ImageAssests {
   static const arrowdwon = 'assests/arrow-dwon.png';
   static const fullName = 'assests/Profile.png';
   static const phone = 'assests/Call.png';
-
+  static const whitebellicon = 'assests/white_bell_icon.png';
+  static const privacypolicyicon = 'assests/privacy_policy.png';
+  static const whitearrowforwardicon = 'assests/white_arrow_forward.png';
+  static const logouticon = 'assests/logout.png';
+  static const abouticon = 'assests/about.png';
+  static const editicon = 'assests/edit_icon.png';
 }

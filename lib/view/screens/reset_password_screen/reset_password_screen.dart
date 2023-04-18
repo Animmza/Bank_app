@@ -1,16 +1,13 @@
 import 'package:bankapppp/assest/assests-folder.dart';
 import 'package:bankapppp/res/colors.dart';
-import 'package:bankapppp/view/SignIn.dart';
-import 'package:bankapppp/view/home.dart';
 import 'package:bankapppp/view/screens/create_new_password_screen/create_new_password_screen.dart';
-import 'package:bankapppp/view/screens/sign_up_screen/widgets/common_text_field.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:otp_text_field/otp_text_field.dart';
 import 'package:otp_text_field/style.dart';
-
 
 class ResetPasswordScreen extends StatefulWidget {
   const ResetPasswordScreen({Key? key}) : super(key: key);
@@ -40,39 +37,51 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 35, left: 10, right: 170),
-                child: Text(
-                  "Forget Password",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontFamily: "Inter",
-                    fontSize: 22,
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.only(top: 35, left: 20.w),
+                  child: Text(
+                    "Forget Password",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontFamily: "Inter",
+                      fontSize: 22,
+                    ),
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 4, right: 67),
-                child: Text(
-                    'Please check your Email for Code, we have sent to you.',
-                    style: TextStyle(fontSize: 11, color: Colors.black26)),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.only(top: 4, left: 20.w),
+                  child: Text(
+                      'Please check your Email for Code, we have sent to you.',
+                      style: TextStyle(fontSize: 11, color: Colors.black26)),
+                ),
               ),
               SizedBox(
                 height: 46,
               ),
-              OTPTextField(
-                length: 4,
-                width: MediaQuery.of(context).size.width,
-                fieldWidth: 60,
-                otpFieldStyle: OtpFieldStyle(backgroundColor: Colors.white, borderColor: Color(0xFFE8B80E), enabledBorderColor: Color(0xFFE8B80E),focusBorderColor: Color(0xFFE8B80E)),
-                style: TextStyle(
-                    fontSize: 32
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                child: OTPTextField(
+                  length: 4,
+                  width: MediaQuery.of(context).size.width,
+                  fieldWidth: 60,
+                  spaceBetween: 10.w,
+                  otpFieldStyle: OtpFieldStyle(
+                      backgroundColor: Colors.white,
+                      borderColor: Color(0xFFE8B80E),
+                      enabledBorderColor: Color(0xFFE8B80E),
+                      focusBorderColor: Color(0xFFE8B80E)),
+                  style: TextStyle(fontSize: 32),
+                  textFieldAlignment: MainAxisAlignment.center,
+                  fieldStyle: FieldStyle.box,
+                  onCompleted: (pin) {
+                    print("Completed: " + pin);
+                  },
                 ),
-                textFieldAlignment: MainAxisAlignment.spaceAround,
-                fieldStyle: FieldStyle.box,
-                onCompleted: (pin) {
-                  print("Completed: " + pin);
-                },
               ),
               /*Padding(
                 padding: const EdgeInsets.only(top: 46, left: 48),

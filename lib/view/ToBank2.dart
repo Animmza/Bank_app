@@ -70,15 +70,18 @@ class _ToBankState extends State<ToBank> {
               SizedBox(
                 height: 47,
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 16, right: 233),
-                child: Text(
-                  "New Account",
-                  style: TextStyle(
-                      fontFamily: "Inter",
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xFFADA4A5)),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 16),
+                  child: Text(
+                    "New Account",
+                    style: TextStyle(
+                        fontFamily: "Inter",
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xFFADA4A5)),
+                  ),
                 ),
               ),
               SizedBox(

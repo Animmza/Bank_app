@@ -7,6 +7,7 @@ class textcolor {
 
 const greenColor = Color(0xff019747);
 const lightIconColor = Color.fromARGB(255, 222, 249, 224);
+const goldencolor = Color(0xFFE8B500);
 
 class CustomTextStyle {
   static const TextStyle nameOfTextStyle = TextStyle(
