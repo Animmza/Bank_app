@@ -1,19 +1,21 @@
 import 'package:bankapppp/assest/assests-folder.dart';
 import 'package:bankapppp/res/colors.dart';
 import 'package:bankapppp/view/home.dart';
+import 'package:bankapppp/view/screens/forget_password_screen/forget_password_screen.dart';
+import 'package:bankapppp/view/screens/sign_up_screen/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
-class signIn extends StatefulWidget {
-  const signIn({Key? key}) : super(key: key);
+class SignInScreen extends StatefulWidget {
+  const SignInScreen({Key? key}) : super(key: key);
 
   @override
-  State<signIn> createState() => _signInState();
+  State<SignInScreen> createState() => _SignInScreenState();
 }
 
-class _signInState extends State<signIn> {
+class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,21 +23,21 @@ class _signInState extends State<signIn> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Container(
                 height: 242,
                 width: 341,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(ImageAssests.splash),
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 35, left: 20, right: 270),
+              const Padding(
+                padding: EdgeInsets.only(top: 35, left: 20, right: 270),
                 child: Text(
                   "Sign In",
                   style: TextStyle(
@@ -46,12 +48,12 @@ class _signInState extends State<signIn> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 28, right: 32, top: 16),
+                padding: const EdgeInsets.only(left: 28, right: 32, top: 16),
                 child: Container(
                   height: 48,
                   width: 315,
                   child: TextField(
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontFamily: "Inter",
                         fontWeight: FontWeight.w400,
                         fontSize: 12),
@@ -61,7 +63,7 @@ class _signInState extends State<signIn> {
                         child: Container(
                           height: 13,
                           width: 15,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             image: DecorationImage(
                               image: AssetImage(ImageAssests.emailicon),
                             ),
@@ -90,7 +92,7 @@ class _signInState extends State<signIn> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 28, right: 32, top: 16),
+                padding: const EdgeInsets.only(left: 28, right: 32, top: 16),
                 child: Container(
                   height: 48,
                   width: 315,
@@ -148,13 +150,13 @@ class _signInState extends State<signIn> {
                           fontSize: 12.sp,
                           color: const Color((0xFFADA4A5))),
                     ),
-                    onPressed: () async {
-                      const String _url = "https://www.geeksforgeeks.org";
+                    onPressed: () {
+                      Get.to(const ForgetPasswordScreen());
                     },
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Padding(
@@ -163,7 +165,15 @@ class _signInState extends State<signIn> {
                   height: 50,
                   width: 216,
                   child: TextButton(
-                    child: Text(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6)),
+                      backgroundColor: greenColor,
+                    ),
+                    onPressed: () {
+                      Get.to(const Home());
+                    },
+                    child: const Text(
                       "Sign In",
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
@@ -171,42 +181,36 @@ class _signInState extends State<signIn> {
                           fontSize: 18,
                           color: Colors.white),
                     ),
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(6)),
-                      backgroundColor: greenColor,
-                    ),
-                    onPressed: () {
-                      Get.to(Home());
-                    },
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    "Don't have an account",
+                  const Text(
+                    "Don't have an account?",
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontFamily: "Inter",
-                      fontSize: 12,
+                      fontSize: 14,
                       color: Color(0xFF475569),
                     ),
                   ),
-                  SizedBox(
-                    width: 6,
-                  ),
-                  Text(
-                    "Sign-up",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Inter",
-                        fontSize: 14,
-                        color: greenColor),
+                  TextButton(
+                    onPressed: () {
+                      Get.to(const SignUpScreen());
+                    },
+                    child: const Text(
+                      "Sign-up",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Inter",
+                          fontSize: 16,
+                          color: greenColor),
+                    ),
                   ),
                 ],
               )

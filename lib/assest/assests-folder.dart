@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class ImageAssests {
   static const splash = 'assests/splashimage.jpg';
   static const emailicon = 'assests/Message.png';
@@ -35,4 +33,7 @@ class ImageAssests {
   static const Rectangular = 'assests/Rectangular.png';
   static const Rectangular1 = 'assests/Rectangle1.png';
   static const arrowdwon = 'assests/arrow-dwon.png';
+  static const fullName = 'assests/Profile.png';
+  static const phone = 'assests/Call.png';
+
 }

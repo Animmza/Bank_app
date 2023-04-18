@@ -3,7 +3,6 @@ import 'package:bankapppp/res/colors.dart';
 import 'package:bankapppp/view/AddtoWallet.dart';
 import 'package:bankapppp/view/Banktobank.dart';
 import 'package:bankapppp/view/Contact.dart';
-import 'package:bankapppp/view/Contatc2.dart';
 import 'package:bankapppp/view/RequestMoney.dart';
 import 'package:bankapppp/view/ToBank.dart';
 import 'package:bankapppp/view/Transactionhistory.dart';

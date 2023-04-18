@@ -8,7 +8,7 @@ import '../../view/splash.dart';
 class approutes{
   static appRoutes()=>[
     GetPage(name:RoutesName.splashScreen,page:()=>Splash(),),
-    GetPage(name:RoutesName.signInScreen,page:()=>signIn(),),
+    GetPage(name:RoutesName.signInScreen,page:()=>SignInScreen(),),
     GetPage(name:RoutesName.Home,page:()=>Home(),),
 
   ];
