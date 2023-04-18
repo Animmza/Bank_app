@@ -10,7 +10,6 @@ import 'package:bankapppp/view/widght/home_grid_box.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-
 import 'ToMarchant.dart';
 
 class Home extends StatefulWidget {

@@ -8,6 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:otp_text_field/otp_text_field.dart';
+import 'package:otp_text_field/style.dart';
+
 
 class ResetPasswordScreen extends StatefulWidget {
   const ResetPasswordScreen({Key? key}) : super(key: key);
@@ -54,7 +57,24 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     'Please check your Email for Code, we have sent to you.',
                     style: TextStyle(fontSize: 11, color: Colors.black26)),
               ),
-              Padding(
+              SizedBox(
+                height: 46,
+              ),
+              OTPTextField(
+                length: 4,
+                width: MediaQuery.of(context).size.width,
+                fieldWidth: 60,
+                otpFieldStyle: OtpFieldStyle(backgroundColor: Colors.white, borderColor: Color(0xFFE8B80E), enabledBorderColor: Color(0xFFE8B80E),focusBorderColor: Color(0xFFE8B80E)),
+                style: TextStyle(
+                    fontSize: 32
+                ),
+                textFieldAlignment: MainAxisAlignment.spaceAround,
+                fieldStyle: FieldStyle.box,
+                onCompleted: (pin) {
+                  print("Completed: " + pin);
+                },
+              ),
+              /*Padding(
                 padding: const EdgeInsets.only(top: 46, left: 48),
                 child: Row(
                   children: [
@@ -137,7 +157,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     ),
                   ],
                 ),
-              ),
+              ),*/
               SizedBox(
                 height: 50,
               ),
